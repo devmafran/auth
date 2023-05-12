@@ -11,8 +11,20 @@ const urlParams = new URLSearchParams(queryString);
 	console.log(queryString);
     console.log( "ready!" );
 	const product = urlParams.get('code')
+	//console.log("https://graph.instagram.com/3086301200686624549?fields=id,media_type,media_url,username,timestamp&access_token="+product);  
+	var flickerAPI = "https://api.instagram.com/oauth/access_token";
+  $.getJSON( flickerAPI, {
+    client_id: "549784487358718",
+    client_secret: "89500ceef7f5368469beebdee30b66cb",
+    code: product,
+	grant_type:"authorization_code",
+	redirect_uri:"https://devmafran.github.io/auth/"
+  }).done(function( json ) {
+		console.log( "JSON Data: " + json );
+		product = json.access_token;
+    });
 	console.log("https://graph.instagram.com/3086301200686624549?fields=id,media_type,media_url,username,timestamp&access_token="+product);  
-}
+	}
 </script>
 </head>
 <body>
