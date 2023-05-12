@@ -1,9 +1,32 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+function myFunction() {
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+	
+	console.log(queryString);
+    console.log( "ready!" );
+	const product = urlParams.get('code')
+	console.log("https://graph.instagram.com/3086301200686624549?fields=id,media_type,media_url,username,timestamp&access_token="+product);  
+}
+</script>
+</head>
+<body>
 
 <a href="https://api.instagram.com/oauth/authorize?client_id=549784487358718&redirect_uri=https://devmafran.github.io/auth/&scope=user_profile,user_media,instagram_graph_user_profile,instagram-graph-user-media&response_type=code">Authorize App</a><br/>
 <br/>
 <br/>
-https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret={instagram-app-secret}&access_token={short-lived-access-token}
+
+<button type="button" onclick="myFunction()">Click Me!</button>
 <br/>
 <a href="https://graph.instagram.com/3086301200686624549?fields=id,media_type,media_url,username,timestamp&access_token=IGQVJWb0YxWUpVT1VIemhMekZA6YUtxTFJ0eDF3eUdrQVZAhRkZAjN2pFTWtlaHZAnV1ExNzczUEhCeFByZAmxyWmgxemw0dFRXZA2JhaDdGajRSbnl0M3hBR3FaZAFVzMFhnZAkhzTXFzMVpPTVBaLS1JRVJuMQZDZD">Test</a>
 <br/><br/>IGQVJWb0YxWUpVT1VIemhMekZA6YUtxTFJ0eDF3eUdrQVZAhRkZAjN2pFTWtlaHZAnV1ExNzczUEhCeFByZAmxyWmgxemw0dFRXZA2JhaDdGajRSbnl0M3hBR3FaZAFVzMFhnZAkhzTXFzMVpPTVBaLS1JRVJuMQZDZD
+
+</body>
+</html>
+
+
